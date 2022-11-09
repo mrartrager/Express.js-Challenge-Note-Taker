@@ -1,6 +1,9 @@
 const express = require('express');
+// const { readFile } = require('fs'); //got added automatically when i wrote readFile in app.get
 const path = require('path');
 
+
+// setting up the server using express
 const app = express()
 const PORT = process.env.PORT || 3001;
 
@@ -11,8 +14,9 @@ app.use(express.static('/public'));
 
 
 // this will be used for a get request
-app.get("/", (req, res) => {
-
+app.get("/api/notes", (req, res) => {
+readFile("./db/db.json", "utf-8")
+// res.json(notes)
 })
 
 
