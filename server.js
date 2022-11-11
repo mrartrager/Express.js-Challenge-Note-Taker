@@ -1,7 +1,7 @@
 const express = require('express');
 // const { readFile } = require('fs'); //got added automatically when i wrote readFile in app.get
 const path = require('path');
-
+const fs = require('fs')
 
 // setting up the server using express
 const app = express()
@@ -13,18 +13,35 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('/public'));
 
 
+app.get('/' (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"))
+})
+
+
+app.get("/notes", (req, res) => {
+
+})
+
+
 // this will be used for a get request
 app.get("/api/notes", (req, res) => {
-readFile("./db/db.json", "utf-8")
+fs.readFile("./db/db.json", "utf-8")
+// not sure how to write fsreadFile 
+// fs.readFile(path.join((__dirname, 'db', 'db.json'), 'utf-8' => {
 // res.json(notes)
+// })
 })
 
 
-
-// this will be used for a post request
-app.post("/", (req, res) => {
-
+app.post("/notes", (req, res) => {
+    res,sendFile(path.join(_dirname, "public", "notes.html"))
 })
+
+
+app.post("/api/notes", (req, res) => {
+    
+})
+
 
 
 
