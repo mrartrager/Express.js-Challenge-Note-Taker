@@ -5,7 +5,7 @@ const fs = require('fs')
 
 // setting up the server using express
 const app = express()
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -13,19 +13,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('/public'));
 
 
-app.get('/' (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"))
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
 
 app.get("/notes", (req, res) => {
-
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
 })
 
 
 // this will be used for a get request
 app.get("/api/notes", (req, res) => {
-const apiNote = JSON.parse(fs.readFile("./db/db.json", "utf-8"))
+const apiNote = JSON.parse(fs.readFile("/db/db.json", "utf-8"))
 // not sure how to write fsreadFile 
 
 // fs.readFile(path.join(__dirname, '/public/index.html') =>) 
