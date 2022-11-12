@@ -25,21 +25,23 @@ app.get("/notes", (req, res) => {
 
 // this will be used for a get request
 app.get("/api/notes", (req, res) => {
-fs.readFile("./db/db.json", "utf-8")
+const apiNote = JSON.parse(fs.readFile("./db/db.json", "utf-8"))
 // not sure how to write fsreadFile 
-// fs.readFile(path.join((__dirname, 'db', 'db.json'), 'utf-8' => {
-// res.json(notes)
-// })
+
+// fs.readFile(path.join(__dirname, '/public/index.html') =>) 
+res.json(apiNote)
+// 
+//fs.sendFile(path.join(_dirname, '/public/index.html')) I don't know if i need a sendFile or a readFIle
 })
 
 
 app.post("/notes", (req, res) => {
-    res,sendFile(path.join(_dirname, "public", "notes.html"))
+    res.sendFile(path.join(_dirname, "public", "notes.html"))
 })
 
 
 app.post("/api/notes", (req, res) => {
-    
+    const apiNote = JSON.parse(fs.readFile)
 })
 
 
