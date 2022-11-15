@@ -1,28 +1,22 @@
 const router = require('express').Router();
 const fs = require('fs');
 const path = require('path');
-const fsUtils = require('../helpers/fsUtils.js');
-const uuid = require('../helpers/uuid')
 
-router.get('/notes', (req, res) => {
-    fsUtils.readFromFile('./db/db.json')
-        .then(notes => {
-            res.json(JSON.parse(notes));
-        })
-});
+router.get("/notes", (req, res) => {
+    fs.readFile("./db/db.json", 'utf8',(data)=>{
+        let apiNote = JSON.parse(data)
+        res.json(apiNote)
+    })
+    })
     
-
+    
+// router.post("/notes", (req, res) => {
+//         const apiNote = JSON.parse(fs.readFile)
+//     })
 router.post("/notes", (req, res) => {
-    let newNote = {
-        title: req.body.title,
-        text: req.body.text,
-        id: uuid()
-    }
-    fsUtils.readAndAppend(newNote, './db/db.json')
-    const response = {
-        status: "success", body: newNote
-    }
-    res.json(response);
-});
+    res.json({
+        "title": "Batman"
+    })
+})
 
 module.exports=router
