@@ -19,13 +19,13 @@
 
   ## Contribution: 
   Here is a link to my github repo: 
-
+https://github.com/mrartrager/Express.js-Challenge-Note-Taker
 
   Here is a video link of the application running: 
  https://drive.google.com/file/d/1zF5ndmqQoXhDDyjICtqfFuhHF9aMfVyb/view
 
-  Here is the link to Heroku:
-
+  Here is the link to my Heroku page for this app:
+https://dashboard.heroku.com/apps/wallynotes2022
 
 
   ## Questions: 
